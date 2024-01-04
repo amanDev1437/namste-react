@@ -4,8 +4,8 @@
   "description": "this is namste react by Akshay Saini",
   "main": "App.js",
   "scripts": {
-    "start": "rm -rf .parcel-cache && parcel",
-    "build": "rm -rf .parcel-cache && parcel build",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
