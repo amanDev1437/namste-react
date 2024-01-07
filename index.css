@@ -22,7 +22,6 @@
     padding: 5px; 
     margin: 5px;
     width: 200px;
-    height: 400px;
     background-color: hsl(0, 1%, 73%);
 }
 
@@ -31,8 +30,10 @@
     border: 1px solid black;
 }
 
-.search{
+.filter-btn{
     padding: 10px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .res-logo{
