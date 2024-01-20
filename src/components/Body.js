@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
@@ -46,8 +46,8 @@ const Body = () =>{
                 }}>search</button>
 
                 <button className="filter-btn" onClick={() =>{
-                let filteredList= listOfRestaurants.filter((res)  => res.info.avgRating>4);
-                setListOfRestaurants(filteredList);
+                let filteredList= listOfRestaurants.filter((res)  => res.info.avgRating>4.3);
+                setFilteredRestaurants(filteredList);
                 
                 }}>Top rated Restaurant</button>
            </div>
