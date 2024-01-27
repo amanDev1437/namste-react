@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 
@@ -13,13 +14,15 @@ const Body = () =>{
 
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
+    const onlineStatus = useOnlineStatus();
+
     useEffect(()=>{
         fetchData();
     },[]);
 
     const fetchData = async () => {
 
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5862321&lng=77.3855549&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
         
         const json = await data.json()
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -30,6 +33,11 @@ const Body = () =>{
 
     if(listOfRestaurants.length === 0){
         return <Shimmer></Shimmer>
+    }
+
+    
+    if(onlineStatus === false){
+        return(<h1>Looks like your offline!!</h1>);
     }
 
     return(
